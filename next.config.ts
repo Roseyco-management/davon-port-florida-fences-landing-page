@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  basePath: '/landingpage',
+  // Served at root of subdomain (e.g., landingpage.domain.com)
 };
 
 export default nextConfig;
