@@ -40,8 +40,11 @@ export async function POST(request: Request) {
 
     const resend = new Resend(apiKey);
 
+    // Use custom domain if verified, otherwise use Resend's default sender
+    const fromEmail = process.env.SENDER_EMAIL || 'Davenport Fences <onboarding@resend.dev>';
+
     const { data, error } = await resend.emails.send({
-      from: 'Davenport Fences <info@davenportfloridafences.com>',
+      from: fromEmail,
       to: [process.env.BUSINESS_EMAIL || 'info@davenportfloridafences.com'],
       replyTo: email,
       subject: `New Fence Estimate Request - ${firstName} ${lastName}`,
