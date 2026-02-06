@@ -1,8 +1,4 @@
-import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
-import EstimateRequestEmail from '@/emails/estimate-request';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
@@ -22,6 +18,27 @@ export async function POST(request: Request) {
       preferredTime,
       notes,
     } = body;
+
+    // Check if API key is configured
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error('RESEND_API_KEY is not configured');
+      // Still return success so the user sees confirmation
+      // Log the lead data so it's not lost
+      console.log('=== Lead Data (email not sent - API key missing) ===');
+      console.log({ firstName, lastName, email, phone, address, city, state, zip, propertyRole, preferredDate, preferredTime, notes });
+      return NextResponse.json({
+        success: true,
+        id: 'pending-' + Date.now(),
+        note: 'Email service not configured'
+      });
+    }
+
+    // Dynamically import Resend only when API key exists
+    const { Resend } = await import('resend');
+    const EstimateRequestEmail = (await import('@/emails/estimate-request')).default;
+
+    const resend = new Resend(apiKey);
 
     const { data, error } = await resend.emails.send({
       from: 'Davenport Fences <info@davenportfloridafences.com>',
