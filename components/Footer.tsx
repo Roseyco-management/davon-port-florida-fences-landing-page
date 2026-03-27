@@ -32,6 +32,7 @@ export default function Footer() {
           <p className="text-gray-500 text-sm">
             &copy; {new Date().getFullYear()} Davenport Florida Fences. All rights reserved.
           </p>
+          <p className="text-xs text-gray-600/50 mt-2">Website by <a href="https://roseyco.com" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">RoseyCo</a></p>
         </div>
       </div>
     </footer>
