@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { notifyAgencyLead } from '@/lib/agencyNotify';
 
 export async function POST(request: Request) {
   try {
@@ -68,6 +69,16 @@ export async function POST(request: Request) {
       console.error('Resend error:', error);
       return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
     }
+
+    // Agency lead notification — the ONE standard shape.
+    // See marketing-ide/docs/LEAD-NOTIFICATION-STANDARD.md. Zero PII by design.
+    await notifyAgencyLead({
+      client: "Davenport Fences",
+      apiKey: apiKey,
+      source: "Fence estimate form",
+      ownerLabel: "the client",
+      timeZone: "America/New_York",
+    });
 
     return NextResponse.json({ success: true, id: data?.id });
   } catch (error) {
