@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local Claude Code settings - can hold live API keys, never commit
+.claude/settings.local.json
