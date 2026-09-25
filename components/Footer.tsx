@@ -32,7 +32,12 @@ export default function Footer() {
           <p className="text-gray-500 text-sm">
             &copy; {new Date().getFullYear()} Davenport Florida Fences. All rights reserved.
           </p>
-          <p className="text-xs text-gray-600/50 mt-2">Website by <a href="https://roseyco.com" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">RoseyCo</a></p>
+          <nav aria-label="Legal" className="mt-3 flex flex-wrap justify-center gap-x-5 gap-y-1 text-xs text-gray-500">
+            <Link href="/privacy" className="hover:text-emerald-400 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-emerald-400 transition-colors">Terms of Use</Link>
+            <Link href="/cookie-policy" className="hover:text-emerald-400 transition-colors">Cookie Policy</Link>
+          </nav>
+          <p className="text-xs text-gray-600/50 mt-2">Built by <a href="https://www.roseyco.com/uk/services/web-development" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">Rosey Co</a></p>
         </div>
       </div>
     </footer>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Home, UserPlus, ArrowRight, ArrowLeft, CheckCircle, Loader2 } from 'lucide-react';
+import { Home, UserPlus, ArrowRight, ArrowLeft, CheckCircle, Loader2, Check } from 'lucide-react';
 
 type FormData = {
   propertyRole: string;
@@ -183,7 +183,7 @@ export default function EstimateForm() {
                     'If you love it, we can often start within the week',
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-gray-600">
-                      <span className="text-emerald-500 font-bold">✓</span>
+                      <Check className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" aria-hidden="true" />
                       {item}
                     </li>
                   ))}

@@ -8,6 +8,7 @@ import TrustSection from '@/components/TrustSection';
 import FAQSection from '@/components/FAQSection';
 import EstimateForm from '@/components/EstimateForm';
 import FinalCTA from '@/components/FinalCTA';
+import AboutSection from '@/components/AboutSection';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -34,6 +35,8 @@ export default function Home() {
 
       {/* Final push for those who scrolled past */}
       <FinalCTA />
+
+      <AboutSection />
 
       <Footer />
     </main>

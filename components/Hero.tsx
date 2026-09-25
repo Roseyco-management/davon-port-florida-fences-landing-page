@@ -1,6 +1,7 @@
 'use client';
 
 import ScrollLink from './ScrollLink';
+import { Check } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -25,7 +26,7 @@ export default function Hero() {
       <div className="relative z-10 text-center max-w-4xl animate-fade-in-up">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-5 py-2 rounded-full text-white text-sm font-medium mb-6">
-          <span className="flex items-center justify-center w-5 h-5 bg-emerald-500 rounded-full text-xs">✓</span>
+          <span className="flex items-center justify-center w-5 h-5 bg-emerald-500 rounded-full"><Check className="w-3 h-3" aria-hidden="true" /></span>
           500+ Happy Homeowners in Davenport
         </div>
 
